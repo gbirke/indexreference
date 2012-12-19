@@ -16,7 +16,7 @@ class syntax_plugin_indexreference extends DokuWiki_Syntax_Plugin {
     protected $idxnumbers = array();
     protected $idxrefs = array();
 
-    const TYPE_IDXREF  = 1;
+    const TYPE_IDXREF    = 1;
     const TYPE_WRONG_IDX = 2;
     const TYPE_WRONG_REF = 3;
 
@@ -49,7 +49,12 @@ class syntax_plugin_indexreference extends DokuWiki_Syntax_Plugin {
     }
 
     /**
-     * Handle the match
+     * Store the counter name and the counter id in the parser data
+     * 
+     * Assignment of actual counter values is done by the action plugin after
+     * all idxnum tags have been parsed.
+     * 
+     * @return array
      */
     function handle($match, $state, $pos, &$handler) {
         if($state !== DOKU_LEXER_SPECIAL ) {
@@ -67,6 +72,13 @@ class syntax_plugin_indexreference extends DokuWiki_Syntax_Plugin {
 
     /**
      * Create output
+     * 
+     * The data is an array with with following keys:
+     * 
+     * 0 - reference typ. One of the TYPE_ constants of this class
+     * 1 - Counter name
+     * 2 - Counter reference id
+     * 3 - Counter value (Added by the action plugin, only used for TYPE_IDXREF)
      */
     function render($format, &$R, $data) {
         if($format == 'xhtml'){
@@ -88,7 +100,6 @@ class syntax_plugin_indexreference extends DokuWiki_Syntax_Plugin {
         }
         return false;
     }
-
 }
 
 
