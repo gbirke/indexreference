@@ -62,7 +62,7 @@ class syntax_plugin_indexreference extends DokuWiki_Syntax_Plugin {
         }
 
         if(preg_match('/<idxref ([^\d]*)(\d+)\s*>/', $match, $matches)) {
-            $idxId = trim($matches[1]);
+            $idxId = trim($matches[1], "# \t\r\n\0\x0B");// Allow for "#" before id
             return array(self::TYPE_IDXREF, $idxId, $matches[2]);
         }
         else {
