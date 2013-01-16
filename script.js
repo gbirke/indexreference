@@ -5,7 +5,7 @@
 if(window.toolbar!=undefined){
     toolbar[toolbar.length] = {
         "type":"indexreferencepicker",
-        "title":"Index reference",
+        "title":LANG.plugins.indexreference.buttontext,
         "icon":"../../plugins/indexreference/indexref_icon.png"
     };
 }
@@ -51,7 +51,7 @@ function updateIndexreferencePicker(pickerid, edid) {
         i++;
     }
     if(!i) {
-        picker.textContent = "No index numbers";
+        picker.textContent = LANG.plugins.indexreference.notfound;
     }
 }
 
