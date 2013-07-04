@@ -9,20 +9,6 @@ class action_plugin_indexreference extends DokuWiki_Action_Plugin {
     protected $indexnumbers = array();
 
     /**
-     * return some info
-     */
-    function getInfo(){
-        return array(
-            'author' => 'Gabriel Birke',
-            'email'  => 'gb@birke-software.de',
-            'date'   => '2012-12-20',
-            'name'   => 'indexreference',
-            'desc'   => 'Display references to index numbers',
-            'url'    => 'http://www.birke-software.de/',
-        );
-    }
-
-    /**
      * Register the handlers with the dokuwiki's event controller
      */
     function register(&$controller) {

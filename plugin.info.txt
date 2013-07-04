@@ -1,0 +1,6 @@
+author	Gabriel Birke
+email	gb@birke-software.de
+date	2012-12-20
+name	indexreference
+desc	Display references to index numbers
+url	    https://github.com/gbirke/indexreference
